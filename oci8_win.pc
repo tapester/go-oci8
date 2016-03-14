@@ -7,7 +7,7 @@ glib_genmarshal=glib-genmarshal
 gobject_query=gobject-query
 glib_mkenums=glib-mkenums
 
-Name: oci8
+Name: oci8_win
 Version: 12.1
 Description: oci8 library
 Libs: -L${libdir}
