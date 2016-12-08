@@ -4,24 +4,11 @@ import (
 	"database/sql"
 	"fmt"
 	"os"
-	"strings"
 
 	_ "github.com/mattn/go-oci8"
 )
 
 func main() {
-	nlsLang := os.Getenv("NLS_LANG")
-	if !strings.HasSuffix(nlsLang, "UTF8") {
-		i := strings.LastIndex(nlsLang, ".")
-		if i < 0 {
-			os.Setenv("NLS_LANG", "AMERICAN_AMERICA.AL32UTF8")
-		} else {
-			nlsLang = nlsLang[:i+1] + "AL32UTF8"
-			fmt.Fprintf(os.Stderr, "NLS_LANG error: should be %s, not %s!\n",
-				nlsLang, os.Getenv("NLS_LANG"))
-		}
-	}
-
 	db, err := sql.Open("oci8", getDSN())
 	if err != nil {
 		fmt.Println(err)
@@ -70,12 +57,6 @@ func testSelect(db *sql.DB) error {
 		rows.Scan(&f1, &f2)
 		println(f1, f2) // 3.14 foo
 	}
-	_, err = db.Exec("create table foo(bar varchar2(256))")
-	_, err = db.Exec("drop table foo")
-	if err != nil {
-		return err
-	}
-
 	return nil
 }
 
