@@ -6,53 +6,42 @@ go-oci8
 Description
 -----------
 
-Oracle driver conforming to the built-in database/sql interface
+oracle driver conforming to the built-in database/sql interface
 
 Installation
 ------------
 
 This package can be installed with the go get command:
 
-    go get github.com/mattn/go-oci8
+    go get github.com/tapester/go-oci8
 
-You need to put `oci8.pc` like into your `$PKG_CONFIG_PATH`. `oci8.pc` should be like below.
 
-### Example for Windows
+You need to put `oci8.pc` like into your `$PKG_CONFIG_PATH`. `oci8.pc` should be like below. This is an example for windows.
+PKG-CONFIG is required for compilation, either compiled from [source] (https://pkg-config.freedesktop.org/releases/) locally using the MingGW/MSYS toolchain or as binary as described on https://stackoverflow.com/questions/1710922/how-to-install-pkg-config-in-windows
+
 
 ```
-prefix=/devel/target/XXXXXXXXXXXXXXXXXXXXXXXXXX
+prefix=./target/
 exec_prefix=${prefix}
-libdir=c:/oraclexe/app/oracle/product/11.2.0/server/oci/lib/msvc
-includedir=c:/oraclexe/app/oracle/product/11.2.0/server/oci/include/include
+libdir=C:/Oracle/instantclient_12_1/oci.dll
+includedir=C:/Oracle/instantclient_12_1/sdk/include
 
 glib_genmarshal=glib-genmarshal
 gobject_query=gobject-query
 glib_mkenums=glib-mkenums
 
-Name: oci8
+Name: oci8_win
+Version: 12.1
 Description: oci8 library
-Libs: -L${libdir} -loci
+Libs: -L${libdir}
 Cflags: -I${includedir}
-Version: 11.2
 ```
 
-### Example for Linux
+It is also required to set the CGO environment variables to point to the Oracle headers and OCI.DLL
 
 ```
-prefix=/devel/target/XXXXXXXXXXXXXXXXXXXXXXXXXX
-exec_prefix=${prefix}
-libdir=/usr/lib/oracle/11.2/client64/lib
-includedir=/usr/include/oracle/11.2/client64
-
-glib_genmarshal=glib-genmarshal
-gobject_query=gobject-query
-glib_mkenums=glib-mkenums
-
-Name: oci8
-Description: oci8 library
-Libs: -L${libdir} -lclntsh
-Cflags: -I${includedir}
-Version: 11.2
+SET CGO_CFLAGS="-I$<path/to/oracle/include>" 
+CGO_LDFLAGS="-L$<path/to/oracle/bin/oci.dll>"
 ```
 
 Documentation
