@@ -13,10 +13,13 @@ Installation
 
 This package can be installed with the go get command:
 
-    go get github.com/mattn/go-oci8
+    go get github.com/tapester/go-oci8
+
 
 You need to put `oci8.pc` like into your `$PKG_CONFIG_PATH`. `oci8.pc` should be like below. This is an example for windows.
 PKG-CONFIG is required for compilation, either compiled from [source] (https://pkg-config.freedesktop.org/releases/) locally using the MingGW/MSYS toolchain or as binary as described on https://stackoverflow.com/questions/1710922/how-to-install-pkg-config-in-windows
+
+
 ```
 prefix=./target/
 exec_prefix=${prefix}
@@ -32,6 +35,13 @@ Version: 12.1
 Description: oci8 library
 Libs: -L${libdir}
 Cflags: -I${includedir}
+```
+
+It is also required to set the CGO environment variables to point to the Oracle headers and OCI.DLL
+
+```
+SET CGO_CFLAGS="-I$<path/to/oracle/include>" 
+CGO_LDFLAGS="-L$<path/to/oracle/bin/oci.dll>"
 ```
 
 Documentation
