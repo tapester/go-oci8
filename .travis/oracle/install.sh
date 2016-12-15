@@ -14,3 +14,4 @@ test -f /sbin/chkconfig ||
 test -d /var/lock/subsys || sudo mkdir /var/lock/subsys
 
 unzip -j "$ORACLE_FILE" "*/$ORACLE_FILE"
+unzip -j "$ORACLE_FILE_2" "*/$ORACLE_FILE_2"
