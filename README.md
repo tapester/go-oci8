@@ -1,7 +1,7 @@
 go-oci8
 =======
 
-[![Build Status](https://travis-ci.org/mattn/go-oci8.svg)](https://travis-ci.org/mattn/go-oci8)
+[![Build Status](https://travis-ci.org/tapester/go-oci8.svg)](https://travis-ci.org/tapester/go-oci8)
 
 Description
 -----------
