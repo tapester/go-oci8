@@ -5,8 +5,6 @@
 [ -n "$ORACLE_FILE" ] || { echo "Missing ORACLE_FILE environment variable!"; exit 1; }
 [ -n "$ORACLE_HOME" ] || { echo "Missing ORACLE_HOME environment variable!"; exit 1; }
 
-ORACLE_RPM="$(basename "$ORACLE_FILE" .zip)"
-
 cd "$(dirname "$(readlink -f "$0")")"
 
 dpkg -s bc libaio1 rpm unzip > /dev/null 2>&1 ||
@@ -20,4 +18,4 @@ test -f /sbin/chkconfig ||
 
 test -d /var/lock/subsys || sudo mkdir /var/lock/subsys
 
-unzip -j "${ORACLE_DOWNLOAD_DIR}$(basename "$ORACLE_FILE")" "*/$ORACLE_RPM"
+unzip -j "${ORACLE_DOWNLOAD_DIR}$(basename "$ORACLE_FILE")"
