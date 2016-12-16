@@ -11,7 +11,7 @@ env:
     - ORACLE_DOWNLOAD_DIR=.cache/oracle
     
 cache:
-  - directories:
+  directories:
     - .cache/oracle
     
 before_install:
