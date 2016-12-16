@@ -14,7 +14,7 @@ cache:
     - .cache/oracle
     
 before_install:
-  - .travis/oracle/download.sh
+  - .travis/oracle/download.sh --unless-exists
   - .travis/oracle/install.sh
   - >
     { echo "Name: oci8"; echo "Description: Oracle Call Interface"; echo "Version: 12.1";
