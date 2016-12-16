@@ -18,4 +18,4 @@ test -f /sbin/chkconfig ||
 
 test -d /var/lock/subsys || sudo mkdir /var/lock/subsys
 
-unzip -j "${ORACLE_DOWNLOAD_DIR}$(basename "$ORACLE_FILE")" -d "$ORACLE_HOME"
+unzip -j "${ORACLE_DOWNLOAD_DIR}$(basename "$ORACLE_FILE")"
