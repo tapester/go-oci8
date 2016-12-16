@@ -6,9 +6,13 @@ env:
     - ORACLE_FILE=instantclient-basic-windows.x64-12.1.0.2.0.zip
     - ORACLE_FILE_2=instantclient-sdk-windows.x64-12.1.0.2.0.zip
     - ORACLE_HOME=/opt/oracle/instantclient_12_1
-    - ORACLE_SID=XE
     - PKG_CONFIG_PATH="."
-
+    - ORACLE_DOWNLOAD_DIR=.cache/oracle
+    
+cache:
+  - directories:
+    - .cache/oracle
+    
 before_install:
   - .travis/oracle/download.sh
   - .travis/oracle/install.sh
