@@ -3,8 +3,9 @@ sudo: required
 
 env:
   global:
-    - ORACLE_FILE=instantclient-basic-windows.x64-12.1.0.2.0.zip
-    - ORACLE_FILE_2=instantclient-sdk-windows.x64-12.1.0.2.0.zip
+    - ORACLE_COOKIE=ic_ntx64
+    - ORACLE_FILE=instantclient/121020/instantclient-basic-windows.x64-12.1.0.2.0.zip download.sh
+    - ORACLE_FILE=instantclient/121020/instantclient-sdk-windows.x64-12.1.0.2.0.zip download.sh
     - ORACLE_HOME=/opt/oracle/instantclient_12_1
     - PKG_CONFIG_PATH="."
     - ORACLE_DOWNLOAD_DIR=.cache/oracle
