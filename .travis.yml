@@ -20,6 +20,6 @@ before_install:
   - .travis/oracle/install.sh
   - >
     { echo "Name: oci8"; echo "Description: Oracle Call Interface"; echo "Version: 12.1";
-      echo "Cflags: -I$ORACLE_HOME/sdk/include";
-      echo "Libs: -L$ORACLE_HOME/oci.dll";
+      echo "Cflags: -I$TRAVIS_BUILD_DIR/sdk/include";
+      echo "Libs: -L$TRAVIS_BUILD_DIR/oci.dll";
     } | tee oci8.pc
