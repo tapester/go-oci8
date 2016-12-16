@@ -15,6 +15,7 @@ cache:
     - .cache/oracle
     
 before_install:
+  - mkdir $ORACLE_HOME
   - .travis/oracle/download.sh --unless-exists
   - .travis/oracle/install.sh
   - >
